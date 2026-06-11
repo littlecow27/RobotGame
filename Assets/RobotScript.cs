@@ -7,7 +7,8 @@ public class RobotScript : NetworkBehaviour
     private Rigidbody2D rb;
     private Vector2 move;
     [SerializeField] private float speedH;
-    [SerializeField] private float speedV;
+    [SerializeField] private float maxSpeedV;
+    [SerializeField] private float accelerationV;
     [SyncVar] private Color color;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,8 +37,15 @@ public class RobotScript : NetworkBehaviour
     }
     private void FixedUpdate() {
         if(isLocalPlayer) {
-            rb.linearVelocity = new Vector2(move.x * speedH, rb.linearVelocity.y+(move.y * speedV));
-            rb.linearVelocityY = Mathf.Clamp(rb.linearVelocityY, float.MinValue, speedV * 2);
+            float newYVelocity = rb.linearVelocity.y;
+            Debug.Log("Initial: " + newYVelocity);
+            if(move.y > 0.1) {
+                newYVelocity += accelerationV;
+            }
+            Debug.Log("Before Clamp: "+ newYVelocity);
+            newYVelocity = Mathf.Clamp(newYVelocity, -maxSpeedV, maxSpeedV);
+            Debug.Log("After Clamp: " + newYVelocity);
+            rb.linearVelocity = new Vector2(move.x * speedH, newYVelocity);
         }
     }
 }
