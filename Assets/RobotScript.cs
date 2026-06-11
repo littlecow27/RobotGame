@@ -38,13 +38,10 @@ public class RobotScript : NetworkBehaviour
     private void FixedUpdate() {
         if(isLocalPlayer) {
             float newYVelocity = rb.linearVelocity.y;
-            Debug.Log("Initial: " + newYVelocity);
             if(move.y > 0.1) {
                 newYVelocity += accelerationV;
             }
-            Debug.Log("Before Clamp: "+ newYVelocity);
             newYVelocity = Mathf.Clamp(newYVelocity, -maxSpeedV, maxSpeedV);
-            Debug.Log("After Clamp: " + newYVelocity);
             rb.linearVelocity = new Vector2(move.x * speedH, newYVelocity);
         }
     }
