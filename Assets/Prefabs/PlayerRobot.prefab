@@ -357,11 +357,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8369598688572630094}
+  - component: {fileID: 3124899527530648719}
   - component: {fileID: 4718581106019161180}
   - component: {fileID: -3983893062942828035}
   - component: {fileID: -6108197901521703724}
   - component: {fileID: 6052196109232986654}
-  - component: {fileID: 3124899527530648719}
   m_Layer: 0
   m_Name: PlayerRobot
   m_TagString: Untagged
@@ -385,6 +385,23 @@ Transform:
   - {fileID: 7737839210070751989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3124899527530648719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872961081966853367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75e7a8ffc3c19c498eea240497f72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  speedH: 2
+  speedV: 0
 --- !u!61 &4718581106019161180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -497,7 +514,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -509,23 +526,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3124899527530648719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8872961081966853367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75e7a8ffc3c19c498eea240497f72b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  speedH: 2
-  speedV: 50
 --- !u!1 &9075848694630388201
 GameObject:
   m_ObjectHideFlags: 0
