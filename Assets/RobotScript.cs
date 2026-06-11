@@ -36,7 +36,10 @@ public class RobotScript : NetworkBehaviour
     }
     private void FixedUpdate() {
         if(isLocalPlayer) {
-            rb.linearVelocity = new Vector2(move.x * speedH, rb.linearVelocity.y+(move.y * speedV));
+            rb.linearVelocity = new Vector2(move.x * speedH, rb.linearVelocity.y+(move.y * speedV/(60 * 2)));
+            if(rb.linearVelocityY >= speedV) {
+                rb.linearVelocityY = speedV;
+            }
         }
     }
 }
