@@ -25,16 +25,10 @@ public class GameManager : NetworkBehaviour
             StartGame();
         }
     }
-
+    [Server]
     void StartGame() {
         Debug.Log("Game Started!");
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        int spawnIndex = 0;
-        foreach(GameObject player in players) {
-            player.transform.position = spawnPoints[spawnIndex].position;
-            spawnIndex++;
-        }
         if(startTimer <= 0) {
             gameStarted = true;
         } else {
