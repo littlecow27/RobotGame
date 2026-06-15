@@ -1,5 +1,4 @@
 using Mirror;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletScript : NetworkBehaviour 
@@ -8,7 +7,6 @@ public class BulletScript : NetworkBehaviour
     [SerializeField] private float despawnTime = 5f;
 
     private Rigidbody2D rb;
-    private Vector2 direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

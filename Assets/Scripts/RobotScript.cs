@@ -1,4 +1,5 @@
 using Mirror;
+using Mirror.BouncyCastle.Pqc.Crypto.Falcon;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class RobotScript : NetworkBehaviour
     [SerializeField] private float accelerationV;
     [SyncVar] private Color color;
     private GameObject gameManager;
+    public GameObject bullet;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,12 +37,24 @@ public class RobotScript : NetworkBehaviour
                 if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space)) {
                     move = new Vector2(Input.GetAxis("Horizontal"), 1);
                 } else {
-
                     move = new Vector2(Input.GetAxis("Horizontal"), 0);
-
+                }
+                if(move.x > 0.1f) {
+                    transform.localScale = new Vector3(1, 0);
+                } else if(move.x < 0.1f) {
+                    transform.localScale = new Vector3(-1, 0);
                 }
                 if(Input.GetKey(KeyCode.Escape)) {
                     Application.Quit();
+                }
+                if(Input.GetKey(KeyCode.Z)) {
+                    float tempYRot;
+                    if(transform.localScale.x > 0) {
+                        tempYRot = 0;
+                    } else {
+                        tempYRot = -180;
+                    }
+                    Instantiate(bullet, transform.position + new Vector3(1.26f, .09f), new Quaternion(0, 0, 0, ));
                 }
             } else {
                 rb.gravityScale = 0.0f;

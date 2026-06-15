@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3669943850425364946}
   - component: {fileID: -7795938521824612990}
   - component: {fileID: -8725139759411549769}
-  - component: {fileID: 1011369062205385135}
+  - component: {fileID: 3521224112862111276}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -181,7 +181,7 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
---- !u!114 &1011369062205385135
+--- !u!114 &3521224112862111276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,5 +196,5 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  speed: 2
+  speed: 10
   despawnTime: 5
