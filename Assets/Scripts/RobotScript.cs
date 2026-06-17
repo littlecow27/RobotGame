@@ -54,7 +54,7 @@ public class RobotScript : NetworkBehaviour
                     } else {
                         tempYRot = -180;
                     }
-                    Instantiate(bullet, transform.position + new Vector3(1.26f, .09f), new Quaternion(0, 0, 0, ));
+                    Instantiate(bullet, transform.position + new Vector3(1.26f, .09f), new Quaternion(0, tempYRot, 0, 0));
                 }
             } else {
                 rb.gravityScale = 0.0f;
