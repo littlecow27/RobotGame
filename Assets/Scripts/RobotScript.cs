@@ -41,20 +41,15 @@ public class RobotScript : NetworkBehaviour
                 }
                 if(move.x > 0.1f) {
                     transform.localScale = new Vector3(1, 1, 1);
-                } else if(move.x < 0.1f) {
+                } else if(move.x < -0.1f) {
                     transform.localScale = new Vector3(-1, 1, 1);
                 }
                 if(Input.GetKey(KeyCode.Escape)) {
                     Application.Quit();
                 }
-                if(Input.GetKey(KeyCode.Z)) {
-                    float tempYRot;
-                    if(transform.localScale.x > 0) {
-                        tempYRot = 0;
-                    } else {
-                        tempYRot = -180;
-                    }
-                    Instantiate(bullet, transform.position + new Vector3(1.26f * transform.localScale.x, .09f), Quaternion.Euler(0, tempYRot, 0));
+                if(Input.GetKeyDown(KeyCode.Z)) {
+                    SpawnBullet();
+
                 }
             } else {
                 rb.gravityScale = 0.0f;
@@ -72,5 +67,16 @@ public class RobotScript : NetworkBehaviour
                 rb.linearVelocity = new Vector2(move.x * speedH, newYVelocity);
             }
         }
+    }
+    [Command]
+    void SpawnBullet() {
+        float tempYRot;
+        if(transform.localScale.x > 0) {
+            tempYRot = 0;
+        } else {
+            tempYRot = -180;
+        }
+        GameObject b = Instantiate(bullet, transform.position + new Vector3(0.3305f * transform.localScale.x, .026f), Quaternion.Euler(0, tempYRot, 0));
+        NetworkServer.Spawn(b);
     }
 }

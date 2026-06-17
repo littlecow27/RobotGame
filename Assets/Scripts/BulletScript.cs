@@ -12,11 +12,7 @@ public class BulletScript : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, despawnTime);
-        if(transform.rotation.y < -1) {
-            rb.linearVelocity = new Vector2(-1f * speed, 0);
-        } else {
-            rb.linearVelocity = new Vector2(1f * speed, 0);
-        }
+        rb.linearVelocity = transform.right * speed;
     }
 
     // Update is called once per frame
