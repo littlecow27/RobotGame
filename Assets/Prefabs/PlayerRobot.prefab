@@ -490,6 +490,7 @@ MonoBehaviour:
   speedH: 5
   maxSpeedV: 6
   accelerationV: 1
+  bullet: {fileID: 260642900144093335, guid: 06080e5844ba6604ea19219662808692, type: 3}
 --- !u!61 &4718581106019161180
 BoxCollider2D:
   m_ObjectHideFlags: 0

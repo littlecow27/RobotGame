@@ -40,9 +40,9 @@ public class RobotScript : NetworkBehaviour
                     move = new Vector2(Input.GetAxis("Horizontal"), 0);
                 }
                 if(move.x > 0.1f) {
-                    transform.localScale = new Vector3(1, 0);
+                    transform.localScale = new Vector3(1, 1, 1);
                 } else if(move.x < 0.1f) {
-                    transform.localScale = new Vector3(-1, 0);
+                    transform.localScale = new Vector3(-1, 1, 1);
                 }
                 if(Input.GetKey(KeyCode.Escape)) {
                     Application.Quit();
@@ -54,7 +54,7 @@ public class RobotScript : NetworkBehaviour
                     } else {
                         tempYRot = -180;
                     }
-                    Instantiate(bullet, transform.position + new Vector3(1.26f, .09f), new Quaternion(0, tempYRot, 0, 0));
+                    Instantiate(bullet, transform.position + new Vector3(1.26f * transform.localScale.x, .09f), Quaternion.Euler(0, tempYRot, 0));
                 }
             } else {
                 rb.gravityScale = 0.0f;
