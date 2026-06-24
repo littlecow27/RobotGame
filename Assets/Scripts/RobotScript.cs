@@ -157,6 +157,7 @@ public class RobotScript : NetworkBehaviour
             tempYRot = -180;
         }
         GameObject b = Instantiate(bullet, location, Quaternion.Euler(0, tempYRot, 0));
+        b.GetComponent<BulletScript>().firedByPlayerNumber = playerNumber;
         NetworkServer.Spawn(b);
     }
     [Server]
