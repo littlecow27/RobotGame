@@ -112,15 +112,15 @@ public class RobotScript : NetworkBehaviour
                     transform.localScale = new Vector3(-1, 1, 1);
                     playerNumberText.transform.localScale = new Vector3(-1, 1, 1);
                 }
-                if(Input.GetKey(KeyCode.Escape)) {
-                    Application.Quit();
+                if(Input.GetKeyDown(KeyCode.Escape)) {
+                    gameManager.GetComponent<WinMenuScript>().PauseGame();
                 }
                 if(shootTimer > 0)
                 {
                     shootTimer -= Time.deltaTime;
                     headIndicator.color = Color.black;
                 }
-                else if(Input.GetKeyDown(KeyCode.Z)) {
+                else if(Input.GetKeyDown(KeyCode.J)) {
                     float direction = transform.localScale.x;
                     Vector3 location = bulletSpawnPoint.transform.position;
                     SpawnBullet(direction, location);

@@ -147,6 +147,7 @@ MonoBehaviour:
   speed: 10
   despawnTime: 5
   bulletLifetime: 0
+  firedByPlayerNumber: 0
 --- !u!114 &-8546488729394828566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4928,7 +4929,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1569a000c7d8c6a48bcc50e148eb4fb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
